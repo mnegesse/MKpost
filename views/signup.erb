@@ -1,16 +1,43 @@
-<form class="ui form" method="POST" action="/users/signup">
-  <h2>SIGN UP</h2>
-  <div class="two fields">
-    <div class="field">
-      <label>Email</label>
-      <input required type="text" name="email">
+
+<div class="div">
+
+  <form class="ui form" method="POST" action="/users/signup">
+    <h2>SIGN UP</h2>
+    <div class="two fields">
+      <div class="field">
+        <label>User Name</label>
+        <input class = "inputname" required type="text" name="user">
+      </div><br>
+
+      <div class="field">
+        <label>Password</label>
+        <input required type="password" name="password">
+      </div><br>
+
+      <div class="field">
+        <label>Email</label>
+        <input required type="text" name="email">
+      </div><br>
+
+      <div class="field">
+        <label>Profile Picture</label>
+        <input required type="text" name="image_link">
+        <p>Image must be an online link</p>
+      </div><br>
+
+      <div class="field">
+        <label>Age</label>
+        <input required type="text" name="age">
+      </div><br>
+
+      <div class="field">
+        <label>Brand</label>
+        <input required type="text" name="about_you">
+      </div>
+
+
     </div>
 
-    <div class="field">
-      <label>Password</label>
-      <input required type="password" name="password">
-    </div>
-  </div>
-
-  <button class="ui button" type="submit">Sign Up</button>
-</form>
+    <button class="ui button" type="submit">Sign Up</button>
+  </form>
+</div>

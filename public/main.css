@@ -1,3 +1,60 @@
-h1 {
-  text-align: center;
+.name {
+  margin-left:1400px;
+}
+.div{
+  margin-left: 350px !important;
+  margin-right: 350px !important;
+  border-left: 3px grey;
+  border-right: 3px grey;
+}
+.highdiv{
+  height: 500px;
+  background-color: black;
+  padding-top: 200px;
+  background-image: url(background.jpg);
+  background-size: cover;
+  background-position: 0px;
+}
+
+
+.ui .centered .card{
+  margin-top:230px;
+}
+.inputname{
+  max-width: 5;
+}
+.posterimage{
+  height:100px;
+  width:100px;
+  border-radius: 100px;
+}
+.carditem{
+  float: right;
+}
+.commenttext{
+  font-size: 20px;
+}
+.posterimage2{
+  height:50px;
+  width:50px;
+  border-radius: 100px;
+}
+.username{
+  font-size: 26px;
+}
+.username2{
+  font-size: 16px;
+}
+#postbox{
+  width: 1150px;
+  height: 100px;
+}
+#profilebox2{
+  width:100px;
+  border: 2px black;
+
+}
+input{
+  border-radius: 10px;
+  height:50px;
 }

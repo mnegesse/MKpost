@@ -1,0 +1,48 @@
+
+
+
+
+<div class="ui centered card">
+  <% if User.find(session[:user_id])%>
+  <div class="cardbox">
+    <img  class="posterimage" src=<%= User.find(session[:user_id]).image %>>
+  </div>
+  <div class="content">
+    <a class="header"><p class = "username"> <%= User.find(session[:user_id]).user_name %> </p></a>
+    <p class = "carditem"> <%= User.find(session[:user_id]).email %> </p>
+    <p class = "carditem"> <%= User.find(session[:user_id]).age %> </p>
+    <p class = "carditem"> <%= User.find(session[:user_id]).bio %> </p>
+    <p class = "carditem"> <%= User.find(session[:user_id]).time %> </p></div>
+  </div>
+  <% end %>
+</div>
+<br>
+
+
+<div class="ui placeholder">
+  <div class="image header">
+    <% if User.find(session[:user_id])%>
+      <img  class="posterimage" src=<%= User.find(session[:user_id]).image %>>
+      <div class="line"><p class = "username"> <%= User.find(session[:user_id]).user_name %> </p>
+      <p class = ""> <%= User.find(session[:user_id]).email %> </p>
+      <p class = ""> <%= User.find(session[:user_id]).age %> </p>
+      <p class = ""> <%= User.find(session[:user_id]).bio %> </p>
+      <p class = ""> <%= User.find(session[:user_id]).time %> </p></div>
+    <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <%=post.user.image%>
+  <% end %>

@@ -1,0 +1,65 @@
+<div class="highdiv">
+  <div class="ui centered card">
+    <% if User.find(session[:user_id])%>
+    <div class="cardbox">
+      <center><img  class="posterimage" src=<%= User.find(session[:user_id]).image %>></center>
+    </div>
+    <div class="content">
+      <a class="header"><p class = "username"> <%= User.find(session[:user_id]).user_name %> </p></a>
+      <p class = "header"> Email: <%= User.find(session[:user_id]).email %> </p>
+      <p class = "header"> Is <%= User.find(session[:user_id]).age %> Years Old</p>
+      <p class = "header"> Brand: <%= User.find(session[:user_id]).bio %> </p>
+      <p class = "header"> Account Created on: <%= User.find(session[:user_id]).time %> </p>
+    </div>
+    </div>
+    <% end %>
+  </div>
+  <br>
+
+
+
+
+
+<div class="div">
+<form class=""action="/timeline/user/posts" method="post">
+  <textarea id="postbox" name="content" rows="Write a blog" cols="" value = ""></textarea>
+  <input class="ui primary button" type="submit" value="Post" />
+</form>
+
+  <div class="ci segments">
+    <% @all_posts.each do |post| %>
+    <div class="ui secondary segment">
+      <div class="ui segment">
+        <p><img  class="posterimage" src=<%=post.user.image%>></p>
+        <p class = "username"> <%= post.user.user_name %> </p>
+      </div>
+      <p class = "username"><%= post.content %></p>
+      <p> <a href="/timeline/post/delete/<%= post.id %>" class="ui primary button"> DELETE </a> </p>
+      <form class="" action="/timeline/post/<%= post.id %>/comments" method="post">
+        <input name="content" rows="" cols="" value = ""></input>
+        <input class="ui primary button" type="submit" value="comment" />
+      </form>
+      <div class="comment">
+        <% post.comments.each do |comment|%>
+        <br><a class="avatar">
+          <img class = "posterimage2" src=<%= comment.user.image%>>
+        </a>
+        <div class="content">
+          <a class="author"><%= comment.user.user_name %></a>
+          <div class="metadata">
+            <span class="date"><%= comment.time %></span>
+          </div>
+          <div class="text">
+            <p class="commenttext"><%= comment.content %></p><br>
+            <% if session[:user_id] == comment.user.id%>
+          </div><a id = "commentbutton" href="/timeline/comment/delete/<%= comment.id %>" class="ui primary button"> DELETE </a>
+          <% end %>
+        </div>
+        <br>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
+
+</div><br>
