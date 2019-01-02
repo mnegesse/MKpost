@@ -2,7 +2,7 @@ require 'sinatra'
 require "sinatra/reloader"
 
 # Run this script with `bundle exec ruby app.rb`
-require 'sqlite3'
+
 require 'active_record'
 
 #require classes
@@ -19,10 +19,16 @@ require 'time'
 
 # Connect to a sqlite3 database
 # If you feel like you need to reset it, simply delete the file sqlite makes
+if ENV['DATABASE_URL']
+  require 'pg'
+  ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+else
+  require 'sqlite3'
 ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
-  database: 'db/carson.db'
+  database: 'db/development.db'
 )
+end
 
 register Sinatra::Reloader
 enable :sessions
@@ -55,14 +61,17 @@ get '/user/:id' do
   @posts = User.find(@id).posts.all.reverse
   erb :guesthome
 end
-post '/user/:id' do
+post '/comment/:id' do
   nowTime = Time.now
   Comment.create(content: params["content"], user_id: session[:user_id], post_id: params[:id], time: nowTime)
-  redirect '/user/:id'
+  #get post object from DB
+
+  # use userid from post.user.id to redirect
+  redirect back
 end
-get '/user/:id' do
+get '/comment/:id' do
   Comment.find(params["id"]).destroy
-  redirect '/user/:id'
+  redirect back
 end
 get '/post/delete/:id' do
   # Post.find(params["id"]).comment.destroy
@@ -171,7 +180,10 @@ post '/users/signup' do
     redirect '/'
   end
 end
-
+get '/delete/account' do
+  User.find(session[:user_id]).destroy
+  redirect '/signup'
+end
 get '/logout' do
   session[:user_id] = nil
   redirect '/login'

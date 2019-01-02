@@ -1,5 +1,5 @@
 .name {
-  margin-left:1400px;
+  margin-left:1200px;
 }
 .div{
   margin-left: 350px !important;
@@ -16,7 +16,11 @@
   background-position: 0px;
 }
 
-
+#navbar{
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
 .ui .centered .card{
   margin-top:230px;
 }

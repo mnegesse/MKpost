@@ -21,10 +21,7 @@
 
 
 <div class="div">
-<form class=""action="/timeline/user/posts" method="post">
-  <textarea id="postbox" name="content" rows="Write a blog" cols="" value = ""></textarea>
-  <input class="ui primary button" type="submit" value="Post" />
-</form>
+
 
   <div class="ci segments">
     <% @posts.each do |post| %>
@@ -34,7 +31,7 @@
         <p class = "username"> <%= post.user.user_name %> </p>
       </div>
       <p class = "username"><%= post.content %></p>
-      <form class="" action="/timeline/post/<%= post.id %>/comments" method="post">
+      <form class="" action="/comment/<%= post.id %>" method="post">
         <input name="content" rows="" cols="" value = ""></input>
         <input class="ui primary button" type="submit" value="comment" />
       </form>
@@ -51,7 +48,7 @@
           <div class="text">
             <p class="commenttext"><%= comment.content %></p><br>
             <% if session[:user_id] == comment.user.id%>
-          </div><a id = "commentbutton" href="/timeline/comment/delete/<%= comment.id %>" class="ui primary button"> DELETE </a>
+          </div><a id = "commentbutton" href="/comment/<%= comment.id %>" class="ui primary button"> DELETE </a>
           <% end %>
         </div>
         <br>

@@ -1,7 +1,7 @@
 # Based on http://www.jonathanleighton.com/articles/2011/awesome-active-record-bug-reports/
 
 # Run this script with `bundle exec ruby app.rb`
-require 'sqlite3'
+
 require 'active_record'
 require './models/post.rb'
 require './models/comment.rb'
@@ -19,10 +19,16 @@ require 'csv'
 
 # Connect to a sqlite3 database
 # If you feel like you need to reset it, simply delete the file sqlite makes
+if ENV['DATABASE_URL']
+  require 'pg'
+  ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'])
+else
+  require 'sqlite3'
 ActiveRecord::Base.establish_connection(
   adapter: 'sqlite3',
-  database: 'db/carson.db'
+  database: 'db/development.db'
 )
+end
 # nowTime = Time.now
 # user = User.create(user_name: "mikpost", password: "Mikpost123", email: "mikpost@gb.com", image: "a;ksdjf;jkahf.jpg", age: 0, bio: "welcome to my page", time: nowTime)
 #
