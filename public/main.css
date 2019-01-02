@@ -1,5 +1,6 @@
 .name {
-  margin-left:1200px;
+  margin-right:50px;
+  padding-top: 20px;
 }
 .div{
   margin-left: 350px !important;
@@ -16,7 +17,42 @@
   background-position: 0px;
 }
 .homeform{
-  padding-top: 100px;
+  padding-top: 150px;
+}
+.logo{
+  padding-top: 200px;
+
+}
+
+.MK{
+  color: orange;
+  font-size: 100px;
+  display: inline;
+  text-decoration-line: overline;
+  animation: beat 1s infinite;
+}
+.post{
+  color: grey;
+  font-size: 50px;
+  display: inline;
+  text-decoration-line: underline;
+  animation: beat2 1s infinite;
+}
+.logo2{
+margin-left: 600px;
+}
+
+.MK2{
+  color: orange;
+  font-size: 50px;
+  display: inline;
+  text-decoration-line: overline;
+}
+.post2{
+  color: grey;
+  font-size: 25px;
+  display: inline;
+  text-decoration-line: underline;
 }
 .username{
   width:1000px;
@@ -68,4 +104,26 @@
 input{
   border-radius: 10px;
   height:50px;
+}
+@keyframes beat {
+  0%{
+    font-size: 100px;
+  }
+  75%{
+    font-size: 130px;
+  }
+  100%{
+    font-size: 100px;
+  }
+}
+@keyframes beat2 {
+  0%{
+    font-size: 50px;
+  }
+  75%{
+    font-size: 65px;
+  }
+  100%{
+    font-size: 50px;
+  }
 }

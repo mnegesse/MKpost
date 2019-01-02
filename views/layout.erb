@@ -11,15 +11,22 @@
 <body>
     <div id = "navbar"class="ui menu">
 
+
       <br>
       <% if @user %>
       <a href="/" class="item">Home</a>
       <a href="/timeline" class="item">View Timeline</a>
-      <h1 class="name"> HI <%= @user.user_name %></h1>
+      <div class="logo2">
+        <center><p class = "MK2">
+        <strong>MK<p class = "post2">POST</p></strong></p>
+        </center>
+      </div>
       <div class="right menu">
+        <h1 class="name"> HI <%= @user.user_name %></h1>
         <a href="/logout" class="item">Logout</a>
         <a href="/delete/account" class="item">Delete Account</a>
       </div>
+
       <% else %>
         <a href="/login" class="item">
           Login
@@ -27,6 +34,11 @@
         <a href="/signup" class="item">
           Sign Up
         </a>
+        <div class="logo2">
+          <center><p class = "MK2">
+          <strong>MK<p class = "post2">POST</p></strong></p>
+          </center>
+        </div>
       <% end %>
       <br>
       <br>
