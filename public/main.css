@@ -15,6 +15,13 @@
   background-size: cover;
   background-position: 0px;
 }
+.homeform{
+  padding-top: 100px;
+}
+.username{
+  width:1000px;
+  word-wrap: break-word;
+}
 
 #navbar{
   width: 100%;
